@@ -4,6 +4,7 @@
 suspectString = input("Enter a string to palindrome check:")
 forward = str(suspectString)
 # The code below checks what is faster: loop reverse or extended slice
+# -------------------------
 # startLoop = time.clock()
 # for char in suspectString:
 #     forward.append(char)
@@ -17,6 +18,7 @@ backward = suspectString[::-1]
 # revTime = endRev - startRev
 # print(revTime)
 # print((revTime > loopTime) - (revTime < loopTime))
+# --------------------------
 # Obviously, extended slice is quicker
 # 0.00017918401514446883 - loop
 # 2.7356338189995296e-06 - slice
