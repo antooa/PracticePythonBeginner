@@ -12,46 +12,45 @@ def play(player_1_move, player_2_move):
         return False
     if player_2_move != rock and player_2_move != scissors and player_2_move != paper:
         return False
+    if player_2_move == player_1_move:
+        return 'Its a draw'
+    else:
+        if player_1_move == rock:
+            if player_2_move == scissors:
+                return player_1
+            elif player_2_move == paper:
+                return player_2
+        elif player_1_move == scissors:
+            if player_2_move == paper:
+                return player_1
+            else:
+                return player_2
+        elif player_1_move == paper:
+            if player_2_move == scissors:
+                return player_2
+            else:
+                return player_1
 
-    if player_1_move == rock:
-        if player_2_move == scissors:
-            return player_1
-        elif player_2_move == paper:
-            return  player_2
-        elif player_2_move == rock:
-            return 'draw'
-    elif player_1_move == scissors:
-        if player_2_move == scissors:
-            return 'draw'
-        elif player_2_move == paper:
-            return  player_1
-        elif player_2_move == rock:
-            return player_2
-    elif player_1_move == paper:
-        if player_2_move == scissors:
-            return player_2
-        elif player_2_move == paper:
-            return  'draw'
-        elif player_2_move == rock:
-            return player_1
 def start_game():
     while True:
         print("----------NEW ROUND-----------")
-        print(player_1 + "! Now is your turn:")
-        player_1_move = input().lower()
+        print("{0}! Now is your turn:" .format(player_1))
+        player_1_move = input()
+
         if player_1_move == 'quit':
             break
-        print(player_2 + "! Now is your turn:")
-        player_2_move = input().lower()
+        print("{0}! Now is your turn:" .format(player_2))
+        player_2_move = input()
+
         if player_2_move == 'quit':
             break
-        result = play(player_1_move, player_2_move)
+        result = play(player_1_move.lower(), player_2_move.lower())
         if not result:
             print("FOLLOW THE RULES! ONLY ROCK/SCISSORS/PAPER!")
         elif result == 'draw':
-            print(result + '!')
+            print('{0}!' .format(result))
         else:
-            print(result + " is winner! CONGRATULATIONS!")
+            print("{0} is winner! CONGRATULATIONS!" .format(result))
 
 
 def main():
