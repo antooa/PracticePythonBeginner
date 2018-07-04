@@ -4,6 +4,8 @@
 #Take this opportunity to practice using functions, described below.
 import ListOfDivisors as divs
 def check_if_prime(num):
+    if num == 1:
+        return False
     divisors = divs.search_divisors(num)
     if (divisors[1] == num):
         return True
@@ -15,5 +17,6 @@ def main():
         print('{0} is prime' .format(num))
     else:
         print('{0} is not prime' .format(num))
+    return 0
 
 main()
